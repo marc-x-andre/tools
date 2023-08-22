@@ -16,11 +16,11 @@
           @update:modelValue="textToCompressed"
         />
       </n-form-item-gi>
-      <n-form-item-gi span="12 800:6" label="Base64" path="compressed">
+      <n-form-item-gi span="12 800:6" label="Compressed" path="compressed">
         <n-input
           v-model:value="formValue.compressed"
           type="textarea"
-          placeholder="VGhpcyB0ZXh0IHdpbGwgYmUgdHJhbnNsYXRlIHRvIGJhc2U2NA=="
+          placeholder="Compressed JSON will appeare here"
         />
       </n-form-item-gi>
     </n-grid>
