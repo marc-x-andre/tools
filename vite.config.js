@@ -15,10 +15,10 @@ export default defineConfig({
         enabled: false,
       },
       manifest: {
-        name: "Marc-André Daigneault - Full-Stack Developer in Montreal",
-        short_name: "MAD 👨‍💻",
+        name: "JSON Toolset 🤖",
+        short_name: "JSON 🤖",
         description:
-          "By day, Full-Stack Developer, software designer, web integrator and release master with experience in Python, VueJS and Docker. By night, amateur photographer, passionate about sociology, outdoor sports and literature",
+          "JSON Toolset offers a range of features to make your JSON-related tasks easier and more efficient.",
         theme_color: "#723aa5",
         icons: [
           {
@@ -35,7 +35,6 @@ export default defineConfig({
             src: "icons/mash-512.png",
             sizes: "512x512",
             type: "image/png",
-            purpose: "any maskable",
           },
         ],
       },
