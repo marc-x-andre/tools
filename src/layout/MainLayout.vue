@@ -63,7 +63,9 @@
     </div>
     <div class="centered">
       <p class="muteted">
-        Copyright © 2023 Marc-André Daigneault. All rights reserved.
+        Copyright © 2023
+        <a href="https://marcxandre.dev/">Marc-André Daigneault</a>
+        | All rights reserved.
       </p>
     </div>
   </n-layout>

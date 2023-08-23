@@ -2,7 +2,10 @@
   <n-grid :cols="isTablet ? 1 : 3" :x-gap="40" class="introduction">
     <n-gi></n-gi>
     <n-gi>
-      <h1 class="handwrite" style="font-size: 2.4em">JSON Toolset 🤖</h1>
+      <h1 class="handwrite" style="font-size: 2.4em">
+        <span class="gradient text">JSON Toolset </span>
+        🤖
+      </h1>
       <p>
         JSON Toolset offers a range of features to make your JSON-related tasks
         easier and more efficient.
