@@ -5,7 +5,7 @@
         <!-- <template #title>
           <a
             v-if="!isMobile"
-            href="https://marcxandre.dev/"
+            href="https://json.marcxandre.dev/"
             style="text-decoration: none; color: inherit"
           >
             Marc-André Daigneault
@@ -36,27 +36,11 @@
           <n-space>
             <n-button
               tag="a"
-              href="https://marcxandre.dev/"
+              href="https://github.com/marc-x-andre/tools"
               target="_blank"
               referrerpolicy="origin"
             >
-              Homepage
-            </n-button>
-            <n-button
-              tag="a"
-              href="https://www.linkedin.com/in/marc-x-andre/"
-              target="_blank"
-              referrerpolicy="origin"
-            >
-              Linkedin
-            </n-button>
-            <n-button
-              tag="a"
-              href="https://cv.marcxandre.dev/"
-              target="_blank"
-              referrerpolicy="origin"
-            >
-              Resume
+              Github
             </n-button>
           </n-space>
           <div

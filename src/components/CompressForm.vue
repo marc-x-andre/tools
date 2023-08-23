@@ -1,5 +1,10 @@
 <template>
   <n-h1>Compress JSON</n-h1>
+  <p>
+    Using
+    <a href="https://www.npmjs.com/package/compress-json">compress-json</a>
+    package
+  </p>
   <n-form
     class="converter-form"
     ref="formRef"
@@ -34,9 +39,7 @@ import { compress, decompress } from "compress-json";
 
 const compressToText = () => {
   try {
-    console.log(formValue.value.compressed);
     const translated = decompress(JSON.parse(formValue.value.compressed));
-    console.log(translated);
     formValue.value.text = translated;
     return true;
   } catch {
@@ -45,15 +48,13 @@ const compressToText = () => {
 };
 
 const textToCompressed = (v) => {
-  console.log(compress(JSON.parse(v)));
   formValue.value.text = v;
   formValue.value.compressed = JSON.stringify(compress(JSON.parse(v)));
-  console.log(compress(JSON.parse(v)));
 };
 
 const formRef = ref(null);
 const formValue = ref({
-  text: "",
+  text: {},
   compress: "",
 });
 
