@@ -11,13 +11,13 @@
             Marc-André Daigneault
           </a>
         </template> -->
-        <template #subtitle>
+        <!-- <template #subtitle>
           <a href="https://marcxandre.dev/" style="text-decoration: none">
             <span class="handwrite" style="font-size: 1.2em">
               Fuelled by passion
             </span>
           </a>
-        </template>
+        </template> -->
         <template #avatar>
           <a
             href="https://marcxandre.dev/"
@@ -63,7 +63,7 @@
     </div>
     <div class="centered">
       <p class="muteted">
-        Copyright © 2023
+        Copyright © 2024
         <a href="https://marcxandre.dev/">Marc-André Daigneault</a>
         | All rights reserved.
       </p>

@@ -7,8 +7,8 @@
         🤖
       </h1>
       <p>
-        JSON Toolset offers a range of features to make your JSON-related tasks
-        easier and more efficient.
+        Whether you need to validate, format, or manipulate JSON, our
+        easy-to-use utilities will streamline your tasks.
       </p>
       <SlideDownIcon />
     </n-gi>

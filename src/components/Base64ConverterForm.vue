@@ -17,11 +17,7 @@
       <n-form-item-gi span="4 800:2" label="JSON Format" path="json">
         <n-switch v-model:value="formValue.json" />
       </n-form-item-gi>
-      <n-form-item-gi
-        span="4 800:2"
-        label="Remove duplicate spaces"
-        path="trim"
-      >
+      <n-form-item-gi span="4 800:2" label="Trim Content" path="trim">
         <n-switch v-model:value="formValue.trim" />
       </n-form-item-gi>
       <n-gi span="0 800:3" />
@@ -44,13 +40,24 @@
           placeholder="This text will be translate to base64"
         />
       </n-form-item-gi>
-      <n-form-item-gi span="12 800:6" label="Base64" path="base64">
-        <n-input
-          v-model:value="formValue.base64"
-          type="textarea"
-          placeholder="VGhpcyB0ZXh0IHdpbGwgYmUgdHJhbnNsYXRlIHRvIGJhc2U2NA=="
-        />
-      </n-form-item-gi>
+      <n-gi span="12 800:6" style="display: flex; flex-direction: column">
+        <n-form-item-gi span="12" label="Base64" path="base64">
+          <n-input
+            v-model:value="formValue.base64"
+            type="textarea"
+            placeholder="VGhpcyB0ZXh0IHdpbGwgYmUgdHJhbnNsYXRlIHRvIGJhc2U2NA=="
+          />
+        </n-form-item-gi>
+        <n-button
+          style="margin-left: auto"
+          href="http://localhost:5173/"
+          size="tiny"
+          @click="openInNewTab"
+          :disabled="formValue.base64 === ''"
+        >
+          Open in new tab
+        </n-button>
+      </n-gi>
     </n-grid>
   </n-form>
 </template>
@@ -85,6 +92,12 @@ const base64ToText = () => {
 const updateJson = (v) => {
   formValue.value.text = v;
   textToBase64();
+};
+
+const openInNewTab = () => {
+  formValue.value.base64;
+  const url = `http://localhost:3000/?appProps=${formValue.value.base64}`;
+  window.open(url, "_blank").focus();
 };
 
 const formRef = ref(null);

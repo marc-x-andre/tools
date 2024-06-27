@@ -18,6 +18,7 @@ import {
   NForm,
   NText,
   NH1,
+  NH3,
 } from "naive-ui";
 
 export const naive = create({
@@ -43,6 +44,8 @@ export const naive = create({
     NSwitch,
     NText,
     NH1,
+    NH3,
+    NText,
     NSpace,
     NButton,
     NIcon,
