@@ -19,6 +19,7 @@ import {
   NText,
   NH1,
   NH3,
+  NDataTable,
 } from "naive-ui";
 
 export const naive = create({
@@ -49,5 +50,6 @@ export const naive = create({
     NSpace,
     NButton,
     NIcon,
+    NDataTable,
   ],
 });

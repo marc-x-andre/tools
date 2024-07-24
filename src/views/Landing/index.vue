@@ -21,6 +21,7 @@
         </n-p>
       </div>
       <CompressForm />
+      <JIRAtoCSV />
       <TicTacToe data-scroll />
     </n-space>
   </div>
@@ -29,6 +30,7 @@
 <script setup>
 import Introduction from "./Introduction.vue";
 import Base64ConverterForm from "@/components/Base64ConverterForm.vue";
+import JIRAtoCSV from "@/components/JIRAtoCSV.vue";
 import CompressForm from "@/components/CompressForm.vue";
 import TicTacToe from "@/components/block/TicTacToe.vue";
 </script>
