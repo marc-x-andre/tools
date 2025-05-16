@@ -3,8 +3,8 @@
     <n-gi></n-gi>
     <n-gi>
       <h1 class="handwrite" style="font-size: 2.4em">
-        <span class="gradient text">JSON Toolset </span>
-        🤖
+        <span class="gradient text">JSON Tools </span>
+        🍻
       </h1>
       <p>
         Whether you need to validate, format, or manipulate JSON, our
@@ -22,7 +22,7 @@ import SlideDownIcon from "@/components/SlideDownIcon.vue";
 <style lang="sass">
 @import vars
 .introduction
-  min-height: 50vh
+  min-height: 40vh
   align-items: center
 .with-switch
   position: relative

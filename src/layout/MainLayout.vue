@@ -2,22 +2,6 @@
   <n-layout>
     <n-layout-header>
       <n-page-header :class="{ mobile: isMobile }">
-        <!-- <template #title>
-          <a
-            v-if="!isMobile"
-            href="https://json.marcxandre.dev/"
-            style="text-decoration: none; color: inherit"
-          >
-            Marc-André Daigneault
-          </a>
-        </template> -->
-        <!-- <template #subtitle>
-          <a href="https://marcxandre.dev/" style="text-decoration: none">
-            <span class="handwrite" style="font-size: 1.2em">
-              Fuelled by passion
-            </span>
-          </a>
-        </template> -->
         <template #avatar>
           <a
             href="https://marcxandre.dev/"
@@ -63,7 +47,7 @@
     </div>
     <div class="centered">
       <p class="muteted">
-        Copyright © 2024
+        Copyright © 2025
         <a href="https://marcxandre.dev/">Marc-André Daigneault</a>
         | All rights reserved.
       </p>

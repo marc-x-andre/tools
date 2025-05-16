@@ -1,5 +1,4 @@
 <template>
-  <n-h1>Base64 JSON converter</n-h1>
   <n-form
     class="converter-form"
     ref="formRef"

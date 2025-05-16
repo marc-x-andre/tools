@@ -1,8 +1,8 @@
 <template>
   <div class="landing">
-    <n-space class="components-spacer" data-scroll-container>
+    <n-space class="components-spacer">
       <Introduction />
-      <Base64ConverterForm />
+      <MultiBase64Converter />
       <div>
         <n-h3>Base64 Encoding</n-h3>
         <n-p>
@@ -21,14 +21,14 @@
         </n-p>
       </div>
       <CompressForm />
-      <TicTacToe data-scroll />
+      <TicTacToe />
     </n-space>
   </div>
 </template>
 
 <script setup>
 import Introduction from "./Introduction.vue";
-import Base64ConverterForm from "@/components/Base64ConverterForm.vue";
+import MultiBase64Converter from "@/components/MultiBase64Converter.vue";
 import CompressForm from "@/components/CompressForm.vue";
 import TicTacToe from "@/components/block/TicTacToe.vue";
 </script>
