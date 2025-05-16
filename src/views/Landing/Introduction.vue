@@ -1,17 +1,17 @@
 <template>
-  <n-grid :cols="isTablet ? 1 : 3" :x-gap="40" class="introduction">
-    <n-gi span="12 800:6">
-      <h1 class="handwrite" style="font-size: 2.4em">
-        <span class="gradient text">JSON Tools </span>
-        🍻
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="handwrite hero-title" style="font-size: 2.4em">
+        <span class="gradient text">JSON Tools & Base64 Converter</span> 🍻
       </h1>
-      <p>
-        Whether you need to validate, format, or manipulate JSON, our
-        easy-to-use utilities will streamline your tasks.
+      <p class="tagline">
+        Convert, validate, and format JSON & Base64 instantly.
+        <br />
+        All your essential developer tools, in one place.
       </p>
       <SlideDownIcon />
-    </n-gi>
-  </n-grid>
+    </div>
+  </section>
 </template>
 
 <script setup>
@@ -21,7 +21,7 @@ import SlideDownIcon from "@/components/SlideDownIcon.vue";
 <style lang="sass">
 @import vars
 .introduction
-  min-height: 40vh
+  min-height: 30vh
   align-items: center
 .with-switch
   position: relative
@@ -88,4 +88,18 @@ import SlideDownIcon from "@/components/SlideDownIcon.vue";
     transform: translatey(0px) rotate(4deg)
   100%
     transform: translatey(-25px) rotate(-4deg)
+
+.hero
+  display: flex
+  justify-content: center
+  align-items: flex-start
+  padding-top: 4rem
+.hero-content
+  width: 100%
+  max-width: 66vw
+  margin: 0 auto
+  display: flex
+  flex-direction: column
+  align-items: center
+  text-align: center
 </style>

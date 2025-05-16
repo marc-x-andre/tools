@@ -21,24 +21,74 @@
       </n-form-item-gi>
       <n-gi span="0 800:3" />
       <!-- Row 2 -->
-      <n-form-item-gi
+      <n-gi
         v-if="formValue.json"
         span="12 800:6"
-        label="JSON"
-        path="text"
+        style="display: flex; flex-direction: column"
       >
-        <JsonEditor
-          :modelValue="formValue.text"
-          @update:modelValue="updateJson"
-        />
-      </n-form-item-gi>
-      <n-form-item-gi v-else span="12 800:6" label="Text" path="text">
-        <n-input
-          v-model:value="formValue.text"
-          type="textarea"
-          placeholder="This text will be translate to base64"
-        />
-      </n-form-item-gi>
+        <n-form-item-gi span="12 " label="JSON" path="text">
+          <JsonEditor
+            :modelValue="formValue.text"
+            @update:modelValue="updateJson"
+          />
+        </n-form-item-gi>
+        <div style="display: flex; gap: 0.5rem; margin-top: 0.25rem">
+          <n-button
+            size="tiny"
+            @click="copyToClipboard(formValue.text, 'json')"
+            :title="
+              copied.json
+                ? 'Copied!'
+                : formValue.json
+                ? 'Copy JSON'
+                : 'Copy Text'
+            "
+          >
+            {{ copied.json ? "Copied!" : "Copy" }}
+          </n-button>
+          <n-button
+            size="tiny"
+            @click="
+              downloadToFile(
+                formValue.text,
+                formValue.json ? 'json-output.json' : 'text-output.txt'
+              )
+            "
+            :title="formValue.json ? 'Download JSON' : 'Download Text'"
+          >
+            Download
+          </n-button>
+        </div>
+      </n-gi>
+      <n-gi
+        v-else
+        span="12 800:6"
+        style="display: flex; flex-direction: column"
+      >
+        <n-form-item-gi span="12" label="Text" path="text">
+          <n-input
+            v-model:value="formValue.text"
+            type="textarea"
+            placeholder="This text will be translate to base64"
+          />
+        </n-form-item-gi>
+        <div style="display: flex; gap: 0.5rem; margin-top: 0.25rem">
+          <n-button
+            size="tiny"
+            @click="copyToClipboard(formValue.text, 'text')"
+            :title="copied.text ? 'Copied!' : 'Copy Text'"
+          >
+            {{ copied.text ? "Copied!" : "Copy" }}
+          </n-button>
+          <n-button
+            size="tiny"
+            @click="downloadToFile(formValue.text, 'text-output.txt')"
+            title="Download Text"
+          >
+            Download
+          </n-button>
+        </div>
+      </n-gi>
       <n-gi span="12 800:6" style="display: flex; flex-direction: column">
         <n-form-item-gi span="12" label="Base64" path="base64">
           <n-input
@@ -47,15 +97,30 @@
             placeholder="VGhpcyB0ZXh0IHdpbGwgYmUgdHJhbnNsYXRlIHRvIGJhc2U2NA=="
           />
         </n-form-item-gi>
-        <n-button
-          style="margin-left: auto"
-          href="http://localhost:5173/"
-          size="tiny"
-          @click="openInNewTab"
-          :disabled="formValue.base64 === ''"
-        >
-          Open in new tab
-        </n-button>
+        <div style="display: flex; gap: 0.5rem; margin-top: 0.25rem">
+          <n-button
+            size="tiny"
+            @click="copyToClipboard(formValue.base64, 'base64')"
+            :title="copied.base64 ? 'Copied!' : 'Copy Base64'"
+          >
+            {{ copied.base64 ? "Copied!" : "Copy" }}
+          </n-button>
+          <n-button
+            size="tiny"
+            @click="downloadToFile(formValue.base64, 'base64-output.txt')"
+            title="Download Base64"
+          >
+            Download
+          </n-button>
+          <n-button
+            size="tiny"
+            @click="openInNewTab"
+            :disabled="formValue.base64 === ''"
+            title="Open in new tab"
+          >
+            Open in new tab
+          </n-button>
+        </div>
       </n-gi>
     </n-grid>
   </n-form>
@@ -103,10 +168,37 @@ const updateJson = (v) => {
   textToBase64();
 };
 
+const copied = ref({ json: false, base64: false });
+
+const copyToClipboard = async (value, type) => {
+  if (!value) return;
+  try {
+    await navigator.clipboard.writeText(value);
+    copied.value[type] = true;
+    setTimeout(() => (copied.value[type] = false), 1200);
+  } catch {
+    // fallback: do nothing
+  }
+};
+
+const downloadToFile = (value, filename) => {
+  if (!value) return;
+  const blob = new Blob([value], { type: "text/plain" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  setTimeout(() => {
+    document.body.removeChild(link);
+    URL.revokeObjectURL(link.href);
+  }, 100);
+};
+
 const openInNewTab = () => {
-  formValue.value.base64;
+  if (!formValue.value.base64) return;
   const url = `http://localhost:3000/?appProps=${formValue.value.base64}`;
-  window.open(url, "_blank").focus();
+  window.open(url, "_blank")?.focus();
 };
 
 const formRef = ref(null);
