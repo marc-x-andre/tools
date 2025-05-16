@@ -1,7 +1,6 @@
 <template>
   <n-grid :cols="isTablet ? 1 : 3" :x-gap="40" class="introduction">
-    <n-gi></n-gi>
-    <n-gi>
+    <n-gi span="12 800:6">
       <h1 class="handwrite" style="font-size: 2.4em">
         <span class="gradient text">JSON Tools </span>
         🍻

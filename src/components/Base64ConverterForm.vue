@@ -62,8 +62,18 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, watch, onMounted } from "vue";
 import JsonEditor from "./JsonEditor.vue";
+import { defineProps } from "vue";
+
+const props = defineProps({
+  persist: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const LOCAL_STORAGE_KEY = "base64ConverterFormValue";
 
 const textToBase64 = () => {
   let text = formValue.value.text;
@@ -108,6 +118,30 @@ const formValue = ref({
   trim: true,
   lastTouch: undefined,
 });
+
+onMounted(() => {
+  if (props.persist) {
+    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        Object.assign(formValue.value, parsed);
+      } catch (e) {
+        // Ignore parse errors, start fresh
+      }
+    }
+  }
+});
+
+watch(
+  formValue,
+  (val) => {
+    if (props.persist) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(val));
+    }
+  },
+  { deep: true }
+);
 
 const rules = {
   text: {

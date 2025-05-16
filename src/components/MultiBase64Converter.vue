@@ -1,9 +1,14 @@
 <template>
   <section>
     <n-h1>Base64 JSON converter</n-h1>
+    <n-p style="margin-bottom: 1rem">
+      The first converter will automatically save your input in your browser.
+      When you return, your last content will be restored.
+    </n-p>
     <Base64ConverterForm
-      v-for="id in converters"
+      v-for="(id, idx) in converters"
       :key="id"
+      :persist="idx === 0"
       style="margin-bottom: 2rem"
     />
     <n-button type="primary" @click="addConverter" style="margin-top: 1rem">
