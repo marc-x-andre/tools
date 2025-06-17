@@ -21,6 +21,7 @@
         </n-p>
       </div>
       <CompressForm />
+      <EmailHasher />
       <TicTacToe />
     </n-space>
   </div>
@@ -31,6 +32,7 @@ import Introduction from "./Introduction.vue";
 import MultiBase64Converter from "@/components/MultiBase64Converter.vue";
 import CompressForm from "@/components/CompressForm.vue";
 import TicTacToe from "@/components/block/TicTacToe.vue";
+import EmailHasher from "@/components/EmailHasher.vue";
 </script>
 
 <style lang="sass">
