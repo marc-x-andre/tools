@@ -1,10 +1,10 @@
 <template>
-  <div class="email-hasher">
-    <n-h1>Email Hasher</n-h1>
+  <div class="hasher">
+    <n-h1>Hasher</n-h1>
     <n-input
       v-model:value="formValue.email"
       type="text"
-      placeholder="Enter your email"
+      placeholder="Enter a value"
       @input="hashEmail"
     />
     <n-input
@@ -46,7 +46,7 @@ const hashEmail = async () => {
 </script>
 
 <style lang="sass">
-.email-hasher
+.hasher
   display: flex
   flex-direction: column
   gap: 1rem
