@@ -20,6 +20,8 @@
           alternative to XML.
         </n-p>
       </div>
+      <n-h1>JSON Editor</n-h1>
+      <JsonEditor />
       <CompressForm />
       <EmailHasher />
       <TicTacToe />
@@ -33,6 +35,7 @@ import MultiBase64Converter from "@/components/MultiBase64Converter.vue";
 import CompressForm from "@/components/CompressForm.vue";
 import TicTacToe from "@/components/block/TicTacToe.vue";
 import EmailHasher from "@/components/EmailHasher.vue";
+import JsonEditor from "@/components/JsonEditor.vue";
 </script>
 
 <style lang="sass">
